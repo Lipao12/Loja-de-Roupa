@@ -2,7 +2,7 @@ import Footer from './ui/components/Footer';
 import Header from './ui/components/Header';
 import MainSection from './ui/components/MainSection';
 import NavigationBar from './ui/components/NavigationBar';
-import './ui/styles/main.css';
+import './ui/styles/app.css';
 
 function App() {
   return (

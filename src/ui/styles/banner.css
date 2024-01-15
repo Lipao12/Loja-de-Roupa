@@ -1,0 +1,14 @@
+.banner{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    text-align: center;
+}
+
+.banner h2{
+    color: beige;
+    font-family: "Montserrat", sans-serif;
+    grid-row: 3;
+    margin: auto;
+    font-size: 2em; 
+    font-weight: bold; 
+}

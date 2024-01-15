@@ -12,3 +12,8 @@ section {
   .special-offers {
     margin-bottom: 30px;
   }
+
+  .highlighted-products {
+    display: flex;
+    flex-direction: row;
+  }

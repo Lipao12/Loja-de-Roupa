@@ -1,0 +1,7 @@
+.container-categories {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
