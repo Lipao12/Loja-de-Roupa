@@ -1,0 +1,14 @@
+section {
+    max-width: 1200px;
+    margin: 20px auto;
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  .highlighted-products,
+  .featured-categories,
+  .special-offers {
+    margin-bottom: 30px;
+  }
