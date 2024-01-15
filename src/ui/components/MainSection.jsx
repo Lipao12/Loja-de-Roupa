@@ -3,7 +3,7 @@ import React from 'react';
 import products from '../assets/produtos';
 import '../styles/main-section.css';
 import Banner from './Banner';
-import Carrossel from './Carrossel';
+import CustomCarrossel from './CustomCarrossel';
 
 const MainSection = () => {
   return (
@@ -16,7 +16,7 @@ const MainSection = () => {
 
       <div className="featured-categories">
       <h2>Produtos em Destaque</h2>
-        <Carrossel produtos={products}/>
+        <CustomCarrossel produtos={products}/>
       </div>
 
       <div className="special-offers">
