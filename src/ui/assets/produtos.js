@@ -29,6 +29,18 @@ const produtos = [
         price: 179.99,
         imgURL: "../assets/camisa1.jpg",
     },
+    {
+        id:6,
+        name: "Camisa Aleatory Reta Lisa Rosa",
+        price: 179.99,
+        imgURL: "../assets/camisa1.jpg",
+    },
+    {
+        id:7,
+        name: "Camisa Aleatory Reta Lisa Rosa",
+        price: 179.99,
+        imgURL: "../assets/camisa1.jpg",
+    },
 ];
 
 export default produtos;

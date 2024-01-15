@@ -2,14 +2,13 @@ import React from 'react';
 import imga from '../assets/banner1.jpg';
 import '../styles/banner.css';
 
-const Banner = (props) => {
-  const { imgURL } = props;
+const Banner = () => {
   const bannerStyle = {
     backgroundImage: `url(${imga})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '480px',
-    width: '260px',
+    width: '220px',
     borderRadius: '3px',
     marginRight: '20px'
   };

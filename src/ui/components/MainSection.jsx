@@ -2,21 +2,18 @@
 import React from 'react';
 import products from '../assets/produtos';
 import '../styles/main-section.css';
-import Banner from './Banner';
 import CustomCarrossel from './CustomCarrossel';
 
 const MainSection = () => {
   return (
     <section>
       <div className="highlighted-products">
-      {Array.from({ length: 5 }).map((_, index) => (
-          <Banner key={index} imgURL={products[index].imgURL} />
-        ))}
+        <CustomCarrossel produtos={products} isCard={false}/>
       </div>
 
       <div className="featured-categories">
-      <h2>Produtos em Destaque</h2>
-        <CustomCarrossel produtos={products}/>
+        <h2>Produtos em Destaque</h2>
+        <CustomCarrossel produtos={products} isCard={true}/>
       </div>
 
       <div className="special-offers">
