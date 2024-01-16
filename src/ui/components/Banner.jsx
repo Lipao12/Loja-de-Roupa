@@ -1,21 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/banner.css';
 
 const Banner = (props) => {
 
   const bannerStyle = {
     backgroundImage: `url(${props.imgURL})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    height: '480px',
-    width: '220px',
-    borderRadius: '3px',
-    marginRight: '20px'
   };
 
-  return <div className="banner" style={bannerStyle}>
-    <h2>Vanguarda</h2>
-  </div>;
+  return (
+    <Link to={`/colecao/${props.id}`} className='banner-link'>
+      <div className="banner" style={bannerStyle}>
+        <h2>{props.name}</h2>
+      </div>
+  </Link>
+  );
 };
 
 export default Banner;

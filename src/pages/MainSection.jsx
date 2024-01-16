@@ -1,5 +1,5 @@
-// MainSection.js
 import React from 'react';
+import colections from '../ui/assets/colecoes';
 import products from '../ui/assets/produtos';
 import CustomCarrossel from '../ui/components/CustomCarrossel';
 import '../ui/styles/main-section.css';
@@ -8,7 +8,7 @@ const MainSection = () => {
   return (
     <section>
       <div className="highlighted-products">
-        <CustomCarrossel produtos={products} isCard={false}/>
+        <CustomCarrossel produtos={colections} isCard={false}/>
       </div>
 
       <div className="featured-categories">

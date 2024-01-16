@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MainSection from './pages/MainSection';
 import Product from './pages/Product';
 import ShopCategory from './pages/ShopCategory';
+import ShopCollections from './pages/ShopCollections';
 import Footer from './ui/components/Footer';
 import Header from './ui/components/Header';
 import NavigationBar from './ui/components/NavigationBar';
@@ -20,6 +21,9 @@ function App() {
           <Route path='/acessorios' element={<ShopCategory category="acessorios" />}/>
           <Route path='/product' element={<Product />}>
             <Route path=':productId' element={<Product />} />
+          </Route>
+          <Route path='/colecao' element={<ShopCollections />}>
+            <Route path=':colecaoId' element={<ShopCollections />} />
           </Route>
         </Routes>
         <Footer />
