@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom';
+import Logo from '../assets/logo1.jpg';
 import '../styles/header.css';
 import Button from './Button';
 
 const Header = ()=>{
     return (
         <header>
-            <Link to='/'><h1>Lojinha</h1></Link>
+            <div className='name-logo'>
+                <img src={Logo} />
+                <Link to='/'><h1>Lojinha</h1></Link>
+            </div>
+            
             <div className="search-bar">
                 <input type="text" placeholder="Pesquisar produtos" />
                 <button>Buscar</button>

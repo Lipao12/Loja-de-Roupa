@@ -8,3 +8,11 @@
     gap: 16px;
     margin-top: 20px; 
   }
+
+.container-collection hr{
+    margin-left: 10px;
+    width: 180px;
+    height: 6px;
+    border-radius: 10px;
+    background: #252525;
+}

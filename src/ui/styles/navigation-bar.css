@@ -1,5 +1,5 @@
 nav {
-  background-color: #333;
+  background-color: #739b98;
   padding: 10px;
 }
 
@@ -29,7 +29,7 @@ li {
   display: block;
   height: 3px; 
   width: 0;
-  background-color: #f5ba13;
+  background-color: #dd653c;
   transition: width 0.2s ease;
 }
 

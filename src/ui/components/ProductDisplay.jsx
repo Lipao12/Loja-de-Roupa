@@ -16,7 +16,6 @@ const ProductDisplay = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Aqui você pode adicionar lógica para lidar com a adição ao carrinho
         console.log(`Produto: ${props.product.name}, Tamanho: ${selectedSize}`);
     };
 

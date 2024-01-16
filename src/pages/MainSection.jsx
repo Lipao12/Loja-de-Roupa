@@ -2,10 +2,13 @@ import React from 'react';
 import colections from '../ui/assets/colecoes';
 import products from '../ui/assets/produtos';
 import CustomCarrossel from '../ui/components/CustomCarrossel';
+import ReceiveEmail from '../ui/components/ReceiveEmail';
 import '../ui/styles/main-section.css';
 
 const MainSection = () => {
   return (
+    <div>
+
     <section>
       <div className="highlighted-products">
         <CustomCarrossel produtos={colections} isCard={false}/>
@@ -20,9 +23,10 @@ const MainSection = () => {
       <div className="special-offers">
         <h2>Ofertas Especiais</h2>
         <hr />
-        {/* Adicione suas ofertas especiais aqui */}
       </div>
     </section>
+      <ReceiveEmail />
+    </div>
   );
 };
 

@@ -14,6 +14,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <NavigationBar />
+
         <Routes>
           <Route path='/' element={<MainSection />}/>
           <Route path='/camisetas' element={<ShopCategory category="camisetas" />}/>
