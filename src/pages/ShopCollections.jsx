@@ -2,7 +2,8 @@ import { useParams } from "react-router-dom";
 import colecoes from "../ui/assets/colecoes";
 import produtos from "../ui/assets/produtos";
 import Card from '../ui/components/Card';
-import '../ui/styles/shop-category.css';
+import MosaicImage from "../ui/components/MosaicImage";
+import '../ui/styles/shop-collection.css';
 
 function ShopCollections() {
   const { colecaoId } = useParams();
@@ -11,11 +12,17 @@ function ShopCollections() {
 
   return (
     <div>
-      <div className='container'>
+      <div className='container-collection'>
         <h1>{colecao.name}</h1>
-        <div className='product-grid'>
+
+        <MosaicImage />
+
+        <h1>Produtos</h1>
+        <hr />
+
+        <div className='product-grid-collection'>
           {productsFiltered.map((product) => (
-            <Card key={product.id} id={product.id} name={product.name} price={product.price} imgURL={product.imgURL} />
+            <Card key={product.id} id={product.id} name={product.name} price={product.price} imgURL={product.mainImgURL} />
           ))}
         </div>
       </div>

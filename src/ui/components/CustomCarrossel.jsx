@@ -14,11 +14,11 @@ const CustomCarrossel = (props) => {
     },
     desktop: {
       breakpoint: { max: 3000, min: 800 },
-      items: props.isCard?4:5
+      items: props.isCard?3:4
     },
     tablet: {
       breakpoint: { max: 800, min: 464 },
-      items: 2
+      items: props.isCard ? 2 : 3
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -27,10 +27,10 @@ const CustomCarrossel = (props) => {
   };
 
   return (
-    <Carousel responsive={responsive} className='carrossel'>
+    <Carousel responsive={responsive} className='carrossel' partialVisible={true}>
         {props.produtos.map((product) => (
           props.isCard? 
-          <Card key={product.id} id={product.id} name={product.name} price={product.price} imgURL={product.imgURL} />
+          <Card key={product.id} id={product.id} name={product.name} price={product.price} imgURL={product.mainImgURL} />
           : <Banner key={product.id} id={product.id} name={product.name} imgURL={product.imgURL}/>
         ))}
     </Carousel>

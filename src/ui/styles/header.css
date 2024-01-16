@@ -15,7 +15,25 @@ header {
     color: #fff;
     font-family: "McLaren", cursive;
     font-weight: 200;
+    padding: 10px;
+    overflow: hidden;
   }
+
+  header h1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, #f5ba13);
+    transition: left 0.3s ease-in-out;
+  }
+  
+  header h1:hover::before {
+    left: 100%;
+  }
+
   header div {
     display: flex;
     flex-direction: row;
@@ -75,5 +93,6 @@ header a {
   font-size: 16px;
   position: relative;
   display: inline-block;
-  padding: 10px;
+  overflow: hidden;
+  border-radius: 10px;
 }

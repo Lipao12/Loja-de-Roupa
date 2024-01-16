@@ -9,7 +9,7 @@ function ShopCategory(props) {
       <div className='container'>
         <div className='product-grid'>
           {products.map((product) => (
-            <Card key={product.id} id={product.id} name={product.name} price={product.price} imgURL={product.imgURL} />
+            <Card key={product.id} id={product.id} name={product.name} price={product.price} imgURL={product.mainImgURL} />
           ))}
         </div>
       </div>
