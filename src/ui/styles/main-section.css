@@ -14,3 +14,11 @@ section {
     margin-top: 20px;
     width: auto;
   }
+
+hr{
+    margin-left: 10px;
+    width: 180px;
+    height: 6px;
+    border-radius: 10px;
+    background: #252525;
+  }

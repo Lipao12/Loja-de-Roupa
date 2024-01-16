@@ -14,7 +14,7 @@ li {
   margin-right: 20px;
 }
 
-a {
+.links{
   text-decoration: none;
   color: #fff;
   font-weight: bold;
@@ -24,7 +24,7 @@ a {
   padding: 10px;
 }
 
-a::after {
+.links::after {
   content: '';
   display: block;
   height: 3px; 
@@ -33,6 +33,6 @@ a::after {
   transition: width 0.2s ease;
 }
 
-a:hover::after {
+.links:hover::after {
   width: 100%;
 }

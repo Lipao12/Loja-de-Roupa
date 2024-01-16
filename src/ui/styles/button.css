@@ -13,3 +13,7 @@
     background-color: aliceblue;
     color:#f5ba13;
 }
+
+.button:active{
+    background: #dfdfdf;
+}

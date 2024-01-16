@@ -1,11 +1,11 @@
 import React from 'react';
-import image from '../assets/camisa1.jpg';
+import { Link } from 'react-router-dom';
 import '../styles/card.css';
 
 const Card = (props) => {
   return (
     <div className="card">
-    <img src={image} alt={props.name} className="card-image" />
+    <Link to={`/product/${props.id}`}><img src={props.imgURL} alt={props.name} className="card-image" /></Link>
       <div>
         <p className="product-name">{props.name}</p>
         <div className='price'>

@@ -1,10 +1,10 @@
 import React from 'react';
-import imga from '../assets/banner1.jpg';
 import '../styles/banner.css';
 
-const Banner = () => {
+const Banner = (props) => {
+
   const bannerStyle = {
-    backgroundImage: `url(${imga})`,
+    backgroundImage: `url(${props.imgURL})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '480px',

@@ -1,8 +1,8 @@
 // MainSection.js
 import React from 'react';
-import products from '../assets/produtos';
-import '../styles/main-section.css';
-import CustomCarrossel from './CustomCarrossel';
+import products from '../ui/assets/produtos';
+import CustomCarrossel from '../ui/components/CustomCarrossel';
+import '../ui/styles/main-section.css';
 
 const MainSection = () => {
   return (
@@ -13,11 +13,13 @@ const MainSection = () => {
 
       <div className="featured-categories">
         <h2>Produtos em Destaque</h2>
+        <hr />
         <CustomCarrossel produtos={products} isCard={true}/>
       </div>
 
       <div className="special-offers">
         <h2>Ofertas Especiais</h2>
+        <hr />
         {/* Adicione suas ofertas especiais aqui */}
       </div>
     </section>

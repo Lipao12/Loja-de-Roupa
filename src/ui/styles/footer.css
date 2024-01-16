@@ -7,3 +7,46 @@ footer {
   footer p {
     color: #ccc;
   }
+
+  .contact{
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 0 140px;
+    gap: 30px;
+    background: linear-gradient(180deg, #eee 0%, #333 75%);
+  }
+
+.contact div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  width: 600px;
+  height: 40px;
+  border-radius: 15px;
+}
+
+.contact input{
+  width: 480px;
+  margin-left: 20px;
+  border: none;
+  outline: none;
+  color: #616161;
+  /*font-family: Poppins;*/
+  font-size: 16px;
+
+}
+
+.contact div button{
+  width: 100px;
+  height: 40px;
+  border-radius: 15px;
+  background: #333;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}

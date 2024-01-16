@@ -6,7 +6,6 @@ import Banner from './Banner';
 import Card from './Card';
 
 const CustomCarrossel = (props) => {
-  console.log(props.isCard);
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -28,11 +27,11 @@ const CustomCarrossel = (props) => {
   };
 
   return (
-    <Carousel responsive={responsive}>
+    <Carousel responsive={responsive} className='carrossel'>
         {props.produtos.map((product) => (
           props.isCard? 
-          <Card key={product.id} name={product.name} price={product.price} imgURL={product.imgURL} />
-          : <Banner key={product.id} />
+          <Card key={product.id} id={product.id} name={product.name} price={product.price} imgURL={product.imgURL} />
+          : <Banner key={product.id} imgURL={product.imgURL}/>
         ))}
     </Carousel>
   );
