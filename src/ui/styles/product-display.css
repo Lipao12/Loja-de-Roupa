@@ -11,14 +11,19 @@
 .product-display-img-list{
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 10px;
     margin-right: 16px;
 }
 
 .product-display-img-list img{
-    height: 163px;
+    height: 132px;
     cursor: pointer;
 }
+
+.product-display-img-list img.selected-image {
+    border: 3px solid #739b98;
+    padding: 2px;
+  }
 
 .product-display-img .main-img{
     width: 586px;

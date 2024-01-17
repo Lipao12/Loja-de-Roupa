@@ -5,7 +5,7 @@ import '../styles/card.css';
 const Card = (props) => {
   return (
     <div className="card">
-    <Link to={`/product/${props.id}`}><img src={props.imgURL} alt={props.name} className="card-image" /></Link>
+    <Link to={`/product/${props.id}`}><img src={props.image} alt={props.name} className="card-image" /></Link>
       <div>
         <p className="product-name">{props.name}</p>
         <div className='price'>

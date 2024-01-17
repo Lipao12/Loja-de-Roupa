@@ -22,7 +22,7 @@ function ShopCollections() {
 
         <div className='product-grid-collection'>
           {productsFiltered.map((product) => (
-            <Card key={product.id} id={product.id} name={product.name} price={product.price} imgURL={product.mainImgURL} />
+            <Card key={product.id} id={product.id} name={product.name} price={product.price} image={product.images[0]} />
           ))}
         </div>
       </div>

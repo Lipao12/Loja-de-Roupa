@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { ShopContext } from '../../context/ShopContext';
 import '../styles/product-display.css';
 
 const ProductDisplay = (props) => {
-    const [selectedImg, setSelectedImg] = useState(props.product.mainImgURL);
+    const { addCart } = useContext(ShopContext);
+    const [selectedImg, setSelectedImg] = useState(props.product.images[0]);
     const [selectedSize, setSelectedSize] = useState(null);
+    const [selectedImgIndex, setSelectedImgIndex] = useState(0);
 
-
-    const handleImageClick = (imgURL) => {
+    const handleImageClick = (imgURL, index) => {
         setSelectedImg(imgURL);
+        setSelectedImgIndex(index);
     };
 
     const handleSizeClick = (size) => {
@@ -23,30 +26,19 @@ const ProductDisplay = (props) => {
         <div className="product-display">
             <div className='product-display-left'>
                 <div className='product-display-img-list'>
-                    <img
-                        src={props.product.mainImgURL}
-                        onClick={() => handleImageClick(props.product.mainImgURL)}
-                        alt='Main Product'
-                    />
-                    <img
-                        src={props.product.sideImgURL}
-                        onClick={() => handleImageClick(props.product.sideImgURL)}
-                        alt='Side Product'
-                    />
-                    <img
-                        src={props.product.mainImgURL}
-                        onClick={() => handleImageClick(props.product.mainImgURL)}
-                        alt='Main Product'
-                    />
-                    <img
-                        src={props.product.sideImgURL}
-                        onClick={() => handleImageClick(props.product.sideImgURL)}
-                        alt='Side Product'
-                    />
-                </div>
-                <div className='product-display-img'>
-                    <img className='main-img' src={selectedImg} alt='Selected Product'/>
-                </div>
+                    {props.product.images.map((imgURL, index) => (
+                        <img
+                            key={index}
+                            src={imgURL}
+                            onClick={() => handleImageClick(imgURL, index)}
+                            className={selectedImgIndex === index ? 'selected-image' : ''}
+                            alt={`Product Image ${index + 1}`}
+                        />
+                    ))}
+            </div>
+            <div className='product-display-img'>
+                <img className='main-img' src={selectedImg} alt='Selected Product'/>
+            </div>
             </div>
             <div className='product-display-right'>
                 <h1>{props.product.name}</h1>
@@ -89,7 +81,7 @@ const ProductDisplay = (props) => {
                             </button>
                         </div>
                     </div>
-                    <input type='submit' value='Add Carrinho' className='button-cart'/>
+                    <input type='submit' value='Add Carrinho' className='button-cart' onClick={()=>{addCart(props.product.id)}}/>
                 </form>
             </div>
         </div>

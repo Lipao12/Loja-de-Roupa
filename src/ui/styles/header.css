@@ -34,10 +34,11 @@ header {
     left: 100%;
   }
 
-  .name-logo img{
+  .name-logo img {
     max-height: 60px;
     margin-right: 12px;
-  }
+
+}
 
   header div {
     display: flex;

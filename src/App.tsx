@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ShopContextProvider from './context/ShopContext';
 import MainSection from './pages/MainSection';
 import Product from './pages/Product';
 import ShopCategory from './pages/ShopCategory';
@@ -10,6 +11,7 @@ import './ui/styles/app.css';
 
 function App() {
   return (
+      <ShopContextProvider>
     <div>
       <BrowserRouter>
         <Header />
@@ -27,9 +29,11 @@ function App() {
             <Route path=':colecaoId' element={<ShopCollections />} />
           </Route>
         </Routes>
+
         <Footer />
       </BrowserRouter>
     </div>
+        </ShopContextProvider>
   )
 }
 

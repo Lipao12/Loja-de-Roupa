@@ -1,6 +1,9 @@
 .breadcrum{
     max-width: 1200px;
     margin: 30px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 .breadcrum a{
     text-decoration: none;
