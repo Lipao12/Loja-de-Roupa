@@ -4,20 +4,29 @@ import produtos from '../ui/assets/produtos';
 export const ShopContext = createContext(null);
 
 const getDefaultCart = () => {
-    let cart = {};
-    for (let i = 0; i < produtos.length; i++) {
-        cart[i] = 0;
-    }
+    let cart = [];
     return cart;
 }
 
 const ShopContextProvider = (props) => {
     const [cartItems, setCartItems] = useState(getDefaultCart());
 
-    const addCart = (itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]:prev[itemId]+1}));
-        console.log(cartItems);
+    const addCart = (itemId, itemTamanho) => {
+        const existingItemIndex = cartItems.findIndex(item => item.id === itemId && item.tamanho === itemTamanho);
+
+
+        if (existingItemIndex !== -1) {
+            setCartItems(prev => {
+                const newCart = [...prev];
+                newCart[existingItemIndex].quantidade += 1;
+                return newCart;
+            });
+        } else {
+            setCartItems(prev => [...prev, { id: itemId, tamanho: itemTamanho, quantidade: 1 }]);
+        }
+
     }
+
     const removeCart = (itemId) => {
         setCartItems((prev) => ({...prev, [itemId]:prev[itemId]-1}))
     }

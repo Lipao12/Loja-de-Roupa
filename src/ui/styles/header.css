@@ -48,13 +48,16 @@ header {
 
 .nav-login-cart{
   margin-right: 32px;
+  position: relative; 
 }
 
 .cart{
-    height: 30px;
-    width: 30px;
-    background-color: #fff;
-    border-radius: 50%;
+  position: relative;
+}
+
+.cart-icon-react {
+  font-size: 28px; 
+  color: #fff;
 }
 
 .nav-cart-count{
@@ -69,6 +72,9 @@ header {
   font-size: 14px;
   background: red;
   color: white;
+
+  position: absolute;
+  right: -8px;
 }
 
 header .search-bar {
