@@ -19,7 +19,7 @@ const ProductDisplay = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(`Produto: ${props.product.name}, Tamanho: ${selectedSize}`);
+        //console.log(`Produto: ${props.product.name}, Tamanho: ${selectedSize}`);
         // Chamando a função addCart com o ID do produto e o tamanho
         addCart(props.product.id, selectedSize);
     };

@@ -1,0 +1,30 @@
+.cart-container{
+    max-width: 1200px;
+    margin: 100px auto 50px auto;
+}
+
+.empty-cart{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.not-empty-cart{
+    display: flex;
+    flex-direction: row;
+}
+
+.cart-container div:first-child .icon-empty-cart{
+    font-size: 300px; 
+}
+
+.cart-container div:first-child .empty-txt1{
+    font-size: 30px; 
+    font-weight: 700;
+}
+
+.cart-container div:first-child .empty-txt2{
+    margin-top: 18px;
+    font-size: 20px; 
+    font-weight: 500;
+}

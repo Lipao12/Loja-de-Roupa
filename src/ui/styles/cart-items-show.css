@@ -1,0 +1,14 @@
+.cart-show-container {
+    width: 60%;
+}
+
+.cart-show-container hr {
+    width: 90%;
+    margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+    .cart-show-container {
+        max-width: 100%;
+    }
+}

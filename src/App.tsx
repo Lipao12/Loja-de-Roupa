@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ShopContextProvider from './context/ShopContext';
+import Cart from './pages/Cart';
 import MainSection from './pages/MainSection';
 import Product from './pages/Product';
 import ShopCategory from './pages/ShopCategory';
@@ -22,6 +23,7 @@ function App() {
           <Route path='/camisetas' element={<ShopCategory category="camisetas" />}/>
           <Route path='/calcas' element={<ShopCategory category="calcas" />}/>
           <Route path='/acessorios' element={<ShopCategory category="acessorios" />}/>
+          <Route path='/carrinho' element={<Cart />}/>
           <Route path='/product' element={<Product />}>
             <Route path=':productId' element={<Product />} />
           </Route>

@@ -26,7 +26,7 @@ const Header = () => {
             
             <div className='nav-login-cart'>
                 <Button name='Login'/>
-                <div className='cart'><FiShoppingCart className='cart-icon-react'/></div>
+                <Link to={'/carrinho'}><div className='cart'><FiShoppingCart className='cart-icon-react'/></div></Link>
                 {cartItemCount > 0 && <div className='nav-cart-count'>{cartItemCount>9?'+9':cartItemCount}</div>}
             </div>
         </header>

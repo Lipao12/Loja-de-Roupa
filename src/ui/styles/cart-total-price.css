@@ -1,0 +1,13 @@
+.cart-price-container {
+    width: 40%;
+    max-height: 200px;
+    padding: 10px 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+@media (max-width: 1200px) {
+    .cart-price-container {
+        max-width: 100%; /* Altere para 100% para manter a largura total dentro de 1200px */
+    }
+}

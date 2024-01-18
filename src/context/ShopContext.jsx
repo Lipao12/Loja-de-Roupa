@@ -27,10 +27,13 @@ const ShopContextProvider = (props) => {
 
     }
 
-    const removeCart = (itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]:prev[itemId]-1}))
-    }
-
+    const removeCart = (itemId, itemTamanho) => {
+        setCartItems(prev => {
+            const newCart = prev.filter(item => !(item.id === itemId && item.tamanho === itemTamanho));
+            return newCart;
+        });
+    };
+    
     const contexValue = {produtos, cartItems, addCart, removeCart};
 
     return (
