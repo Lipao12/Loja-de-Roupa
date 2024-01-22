@@ -10,12 +10,12 @@ const Cart = () => {
 
     const cartProducts = cartItems.map((cartItem) => {
         const product = produtos.find((product) => product.id === cartItem.id);
-
+        console.log("Produto: "+ typeof product.price)
         if (product) {
             return {
                 id: product.id,
                 nome: product.name,
-                preco: product.price,
+                preco: parseFloat(product.price),
                 imagem: product.images[0],
                 tamanho: cartItem.tamanho,
                 quantidade: cartItem.quantidade,
@@ -23,8 +23,6 @@ const Cart = () => {
         }
         return null;
     }).filter(Boolean);
-
-    console.log(cartProducts);
 
     return (
         <div className={`cart-container ${cartProducts.length === 0 ? 'empty-cart' : 'not-empty-cart'}`}>
@@ -37,6 +35,7 @@ const Cart = () => {
             ) : (
                 <>
                     <CartItemsShow cartItems={cartProducts} removeCart={removeCart} />
+                    {console.log(cartProducts[0])}
                     <CartTotalPrice cartItems={cartProducts} />
                 </>
             )}

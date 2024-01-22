@@ -9,8 +9,6 @@ import Button from './Button';
 const Header = () => {
     const { cartItems } = useContext(ShopContext);
     const cartItemCount = Object.values(cartItems).reduce((total, item) => total + item.quantidade, 0);
-    console.log(cartItemCount)
-
 
     return (
         <header>

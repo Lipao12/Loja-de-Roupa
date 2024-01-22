@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ShopContext } from "../context/ShopContext";
 import colections from '../ui/assets/colecoes';
-import products from '../ui/assets/produtos';
 import CustomCarrossel from '../ui/components/CustomCarrossel';
 import ReceiveEmail from '../ui/components/ReceiveEmail';
 import '../ui/styles/main-section.css';
 
+
 const MainSection = () => {
+  const { produtos } = useContext(ShopContext);
+
   return (
     <div>
-
     <section>
       <div className="highlighted-products">
         <CustomCarrossel produtos={colections} isCard={false}/>
@@ -17,7 +19,7 @@ const MainSection = () => {
       <div className="featured-categories">
         <h2>Produtos em Destaque</h2>
         <hr />
-        <CustomCarrossel produtos={products} isCard={true}/>
+        <CustomCarrossel produtos={produtos} isCard={true}/>
       </div>
 
       <div className="special-offers">

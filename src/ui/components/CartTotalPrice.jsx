@@ -9,9 +9,9 @@ const CartTotalPrice = ({ cartItems }) => {
     return (
         <div className="cart-price-container">
             <h1>Total</h1>
-            <p>Sub-total: R$ {cartItemsValue}</p>
+            <p>Sub-total: R$ {cartItemsValue.toFixed(2)}</p>
             <p>Frete: R$ 50.00</p>
-            <p>Total: R$ {cartItemsValue + 50}</p>
+            <p>Total: R$ {(cartItemsValue + 50).toFixed(2)}</p>
             <button>Finalizar</button>
         </div>
     );

@@ -1,5 +1,6 @@
+import axios from 'axios';
 import React, { createContext, useState } from 'react';
-import produtos from '../ui/assets/produtos';
+import prods from "../ui/assets/produtos";
 
 export const ShopContext = createContext(null);
 
@@ -9,7 +10,33 @@ const getDefaultCart = () => {
 }
 
 const ShopContextProvider = (props) => {
+    const [produtos, setProdutos] = useState(prods);
     const [cartItems, setCartItems] = useState(getDefaultCart());
+
+    /*useEffect(() => {
+        // Função para buscar dados de posts da API
+        const fetchProduct = async () => {
+          try {
+            const response = await axios.get('http://localhost:4000/allproducts');
+            setProdutos(response.data);
+          } catch (error) {
+            console.error('Erro ao buscar dados de Product:', error);
+          }
+        };
+            fetchProduct();
+      }, []);*/
+
+      const fetchProductById = async (productId) => {
+        try {
+          const response = await axios.get(`http://localhost:4000/product/${productId}`);
+          console.log(response.data)
+          return response.data;
+        } catch (error) {
+          console.error(`Erro ao buscar o produto com ID ${productId}:`, error);
+          return null;
+        }
+      };
+
 
     const addCart = (itemId, itemTamanho) => {
         const existingItemIndex = cartItems.findIndex(item => item.id === itemId && item.tamanho === itemTamanho);
@@ -34,10 +61,15 @@ const ShopContextProvider = (props) => {
         });
     };
     
-    const contexValue = {produtos, cartItems, addCart, removeCart};
-
+    const contextValue = { 
+        produtos, 
+        cartItems, 
+        addCart, 
+        removeCart, 
+        fetchProductById };
+    
     return (
-        <ShopContext.Provider value={contexValue}>
+        <ShopContext.Provider value={contextValue}>
             {props.children}
         </ShopContext.Provider>
     )
