@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, { createContext, useState } from 'react';
-import prods from "../ui/assets/produtos";
+import React, { createContext, useEffect, useState } from 'react';
+//import prods from "../ui/assets/produtos";
 
 export const ShopContext = createContext(null);
 
@@ -10,26 +10,33 @@ const getDefaultCart = () => {
 }
 
 const ShopContextProvider = (props) => {
-    const [produtos, setProdutos] = useState(prods);
+    const [produtos, setProdutos] = useState([]);
     const [cartItems, setCartItems] = useState(getDefaultCart());
+    const [loading, setLoading] = useState(true);
 
-    /*useEffect(() => {
-        // Função para buscar dados de posts da API
-        const fetchProduct = async () => {
-          try {
-            const response = await axios.get('http://localhost:4000/allproducts');
-            setProdutos(response.data);
-          } catch (error) {
-            console.error('Erro ao buscar dados de Product:', error);
-          }
-        };
-            fetchProduct();
-      }, []);*/
+    useEffect(() => {
+      const fetchProduct = async () => {
+        try {
+          const response = await axios.get('http://localhost:4000/allproducts');
+          setProdutos(response.data);
+        } catch (error) {
+          console.error('Erro ao buscar dados de Product:', error);
+        } finally {
+          setLoading(false);
+        }
+      };
+    
+      fetchProduct();
+    }, []);
+    
+    if (loading) {
+      // Pode renderizar um indicador de carregamento aqui
+      return <div>Carregando...</div>;
+    }
 
       const fetchProductById = async (productId) => {
         try {
           const response = await axios.get(`http://localhost:4000/product/${productId}`);
-          console.log(response.data)
           return response.data;
         } catch (error) {
           console.error(`Erro ao buscar o produto com ID ${productId}:`, error);

@@ -4,7 +4,7 @@ import colecoes from '../assets/colecoes';
 import '../styles/breadcrum.css';
 
 const BreadCrum = (props) => {
-    const colecao = colecoes.find(c => c.id === props.product.collectionId);
+    const colecao = colecoes.find(c => c.id === props.product.collection_id);
 
     return (
         <div className="breadcrum">

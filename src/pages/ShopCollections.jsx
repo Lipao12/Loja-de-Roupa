@@ -1,13 +1,16 @@
 import { useParams } from "react-router-dom";
 import colecoes from "../ui/assets/colecoes";
-import produtos from "../ui/assets/produtos";
+//import produtos from "../ui/assets/produtos";
+import { useContext } from "react";
+import { ShopContext } from "../context/ShopContext";
 import Card from '../ui/components/Card';
 import MosaicImage from "../ui/components/MosaicImage";
 import '../ui/styles/shop-collection.css';
 
 function ShopCollections() {
   const { colecaoId } = useParams();
-  const productsFiltered = produtos.filter((p) => p.collectionId === Number(colecaoId));
+  const { produtos } = useContext(ShopContext);
+  const productsFiltered = produtos.filter((p) => p.collection_id === Number(colecaoId));
   const colecao = colecoes.find((c) => c.id === Number(colecaoId));
 
   return (
