@@ -1,4 +1,4 @@
-import img from '../assets/banner1.jpg';
+import img from '../assets/img_prods/banner1.jpg';
 import '../styles/mosaic-image.css';
 
 function MosaicImage() {

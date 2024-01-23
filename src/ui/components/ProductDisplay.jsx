@@ -7,6 +7,7 @@ const ProductDisplay = (props) => {
     const [selectedImg, setSelectedImg] = useState(props.product.images[0]);
     const [selectedSize, setSelectedSize] = useState(null);
     const [selectedImgIndex, setSelectedImgIndex] = useState(0);
+    const [showSizeAnimation, setShowSizeAnimation] = useState(false);
 
     const handleImageClick = (imgURL, index) => {
         setSelectedImg(imgURL);
@@ -21,7 +22,14 @@ const ProductDisplay = (props) => {
         event.preventDefault();
         //console.log(`Produto: ${props.product.name}, Tamanho: ${selectedSize}`);
         // Chamando a função addCart com o ID do produto e o tamanho
-        addCart(props.product.id, selectedSize);
+        if (selectedSize) {
+            addCart(props.product.id, selectedSize);
+        } else {
+            setShowSizeAnimation(true);
+            setTimeout(() => {
+                setShowSizeAnimation(false);
+            }, 1000); 
+        }
     };
 
     return (
@@ -57,8 +65,9 @@ const ProductDisplay = (props) => {
                 </div>
                 <form onSubmit={handleSubmit}>
                     <div className='product-display-right-size'>
-                        <h1>Escolha o tamanho</h1>
-                        
+                        <h1 className={`${showSizeAnimation ? 'size-animation' : 'product-select-size-txt'}`}>
+                            Selecione o Tamanho!
+                        </h1>
                         <div className='product-display-right-sizes'>
                         <button
                                 type='button'

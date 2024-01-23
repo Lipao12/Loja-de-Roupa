@@ -1,53 +1,65 @@
 import axios from 'axios';
 import React, { createContext, useEffect, useState } from 'react';
-//import prods from "../ui/assets/produtos";
 
 export const ShopContext = createContext(null);
 
-const getDefaultCart = () => {
-    let cart = [];
-    return cart;
-}
-
 const ShopContextProvider = (props) => {
     const [produtos, setProdutos] = useState([]);
-    const [cartItems, setCartItems] = useState(getDefaultCart());
+    const [colecoes, setColecoes] = useState([]);
+    const [cartItems, setCartItems] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-      const fetchProduct = async () => {
-        try {
-          const response = await axios.get('http://localhost:4000/allproducts');
-          setProdutos(response.data);
-        } catch (error) {
-          console.error('Erro ao buscar dados de Product:', error);
-        } finally {
-          setLoading(false);
-        }
-      };
-    
-      fetchProduct();
+        const fetchData = async () => {
+            try {
+                const [productsResponse, collectionsResponse] = await Promise.all([
+                    axios.get('http://localhost:4000/allproducts'),
+                    axios.get('http://localhost:4000/allcollections')
+                ]);
+
+                setProdutos(productsResponse.data);
+                setColecoes(collectionsResponse.data);
+            } catch (error) {
+                console.error('Erro ao buscar dados:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
     }, []);
-    
-    if (loading) {
-      // Pode renderizar um indicador de carregamento aqui
-      return <div>Carregando...</div>;
-    }
 
-      const fetchProductById = async (productId) => {
+    const fetchProductById = async (productId) => {
         try {
-          const response = await axios.get(`http://localhost:4000/product/${productId}`);
-          return response.data;
+            const response = await axios.get(`http://localhost:4000/product/${productId}`);
+            return response.data;
         } catch (error) {
-          console.error(`Erro ao buscar o produto com ID ${productId}:`, error);
-          return null;
+            console.error(`Erro ao buscar o produto com ID ${productId}:`, error);
+            return null;
         }
-      };
+    };
 
+    const fetchCollectionById = async (collectionId) => {
+        try {
+            const response = await axios.get(`http://localhost:4000/collection/${collectionId}`);
+            return response.data;
+        } catch (error) {
+            console.error(`Erro ao buscar o coleção com ID ${collectionId}:`, error);
+            return null;
+        }
+    };
+    const fetchProductsByCollection = async (collectionId) => {
+        try {
+            const response = await axios.get(`http://localhost:4000/productcol/${collectionId}`);
+            return response.data;
+        } catch (error) {
+            console.error(`Erro ao buscar o produto da coleção de ID ${collectionId}:`, error);
+            return null;
+        }
+    };
 
     const addCart = (itemId, itemTamanho) => {
         const existingItemIndex = cartItems.findIndex(item => item.id === itemId && item.tamanho === itemTamanho);
-
 
         if (existingItemIndex !== -1) {
             setCartItems(prev => {
@@ -58,28 +70,32 @@ const ShopContextProvider = (props) => {
         } else {
             setCartItems(prev => [...prev, { id: itemId, tamanho: itemTamanho, quantidade: 1 }]);
         }
-
-    }
+    };
 
     const removeCart = (itemId, itemTamanho) => {
-        setCartItems(prev => {
-            const newCart = prev.filter(item => !(item.id === itemId && item.tamanho === itemTamanho));
-            return newCart;
-        });
+        setCartItems(prev => prev.filter(item => !(item.id === itemId && item.tamanho === itemTamanho)));
     };
-    
+
     const contextValue = { 
-        produtos, 
+        produtos,
+        colecoes, 
         cartItems, 
         addCart, 
         removeCart, 
-        fetchProductById };
-    
+        fetchProductById,
+        fetchCollectionById,
+        fetchProductsByCollection
+    };
+
+    if (loading) {
+        return <div>Carregando...</div>;
+    }
+
     return (
         <ShopContext.Provider value={contextValue}>
             {props.children}
         </ShopContext.Provider>
-    )
-}
+    );
+};
 
 export default ShopContextProvider;

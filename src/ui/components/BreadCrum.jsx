@@ -1,9 +1,12 @@
+import React, { useContext } from 'react';
 import { FiChevronRight } from "react-icons/fi";
 import { Link } from 'react-router-dom';
-import colecoes from '../assets/colecoes';
+import { ShopContext } from "../../context/ShopContext";
+//import colecoes from '../assets/colecoes';
 import '../styles/breadcrum.css';
 
 const BreadCrum = (props) => {
+    const { colecoes } = useContext(ShopContext);
     const colecao = colecoes.find(c => c.id === props.product.collection_id);
 
     return (
