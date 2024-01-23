@@ -16,3 +16,32 @@
     border-radius: 10px;
     background: #252525;
 }
+
+.container-error{
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #F2D8A7;
+}
+
+.container-error img{
+    border-radius: 20px;
+    width: 60%;
+    margin: 0 auto;
+    align-self: center;
+}
+
+.container-error h1 {
+    position: absolute; 
+    top: 40%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    font-size: 24px; 
+    margin: 0; 
+    width: 40%;
+    font-family:cursive;
+}

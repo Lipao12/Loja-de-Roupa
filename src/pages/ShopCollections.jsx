@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
+import error_img from "../ui/assets/error_img/error3.jpg";
 import Card from '../ui/components/Card';
 import MosaicImage from "../ui/components/MosaicImage";
 import '../ui/styles/shop-collection.css';
@@ -52,7 +53,10 @@ function ShopCollections() {
         </div>
       </div>
     ) : (
-      <div>ERROR 404</div>
+      <div className="container-error">
+        <img src={error_img}/>
+        <h1>Oops, você pegou a onda errada! Não encontramos a página que você procurava. Por favor, tente novamente ou volte para a página inicial</h1>
+      </div>
     )
   );
 }
