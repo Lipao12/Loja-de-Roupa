@@ -45,6 +45,12 @@ async function getFilteredProductsByCollection(collection_id) {
   return prod;
 }
 
+async function getFilteredProductsByCategory(category) {
+  const result = await dbConfig.query(`SELECT products.id, products.name, products.price, products.images FROM products WHERE products.categoria = '${category}'`);
+  let prod = result.rows;
+  return prod;
+}
+
 async function getAllCollections() {
   const result = await dbConfig.query("SELECT * FROM colecoes ORDER BY id");
   let prod = result.rows;
@@ -79,6 +85,15 @@ app.get("/product/:id", async (req, res) => {
 // GET a specific product by collecion
 app.get("/productcol/:id", async (req, res) => {
   const filteredProducts = await getFilteredProductsByCollection(parseInt(req.params.id));
+  if (!filteredProducts) return res.status(404).json({ message: "Products not found" });
+  console.log(filteredProducts);
+  res.json(filteredProducts);
+});
+
+// GET a specific product by category
+app.get("/category/:name", async (req, res) => {
+  console.log(typeof req.params.name)
+  const filteredProducts = await getFilteredProductsByCategory(req.params.name);
   if (!filteredProducts) return res.status(404).json({ message: "Products not found" });
   console.log(filteredProducts);
   res.json(filteredProducts);

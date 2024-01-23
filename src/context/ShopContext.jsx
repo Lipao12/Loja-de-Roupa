@@ -48,12 +48,23 @@ const ShopContextProvider = (props) => {
             return null;
         }
     };
+
     const fetchProductsByCollection = async (collectionId) => {
         try {
             const response = await axios.get(`http://localhost:4000/productcol/${collectionId}`);
             return response.data;
         } catch (error) {
             console.error(`Erro ao buscar o produto da coleção de ID ${collectionId}:`, error);
+            return null;
+        }
+    };
+
+    const fetchProductsByCategory = async (category) => {
+        try {
+            const response = await axios.get(`http://localhost:4000/category/${category}`);
+            return response.data;
+        } catch (error) {
+            console.error(`Erro ao acessar a categoria ${category}:`, error);
             return null;
         }
     };
@@ -84,7 +95,8 @@ const ShopContextProvider = (props) => {
         removeCart, 
         fetchProductById,
         fetchCollectionById,
-        fetchProductsByCollection
+        fetchProductsByCollection,
+        fetchProductsByCategory
     };
 
     if (loading) {

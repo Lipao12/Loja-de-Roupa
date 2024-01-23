@@ -20,9 +20,9 @@ function App() {
 
         <Routes>
           <Route path='/' element={<MainSection />}/>
-          <Route path='/camisetas' element={<ShopCategory category="camisetas" />}/>
-          <Route path='/calcas' element={<ShopCategory category="calcas" />}/>
-          <Route path='/acessorios' element={<ShopCategory category="acessorios" />}/>
+          <Route path='/masculino' element={<ShopCategory category="masculino" />}/>
+          <Route path='/feminino' element={<ShopCategory category="feminino" />}/>
+          <Route path='/acessorios' element={<ShopCategory category="acessorio" />}/>
           <Route path='/carrinho' element={<Cart />}/>
           <Route path='/product' element={<Product />}>
             <Route path=':productId' element={<Product />} />

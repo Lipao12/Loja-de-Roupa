@@ -6,8 +6,8 @@ const NavigationBar = () => {
   return (
     <nav>
       <ul>
-        <li><Link className='links' to="/camisetas">Camisetas</Link></li>
-        <li><Link className='links' to="/calcas">Calças</Link></li>
+        <li><Link className='links' to="/masculino">Masculino</Link></li>
+        <li><Link className='links' to="/feminino">Feminino</Link></li>
         <li><Link className='links' to="/acessorios">Acessórios</Link></li>
       </ul>
     </nav>
