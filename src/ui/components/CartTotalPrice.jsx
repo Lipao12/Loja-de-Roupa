@@ -4,7 +4,7 @@ import React from "react";
 import "../styles/cart-total-price.css";
 
 const CartTotalPrice = ({ cartItems }) => {
-    const cartItemsValue = cartItems.reduce((total, item) => total + item.preco, 0);
+    const cartItemsValue = cartItems.reduce((total, item) => total + item.preco*item.quantidade, 0);
 
     return (
         <div className="cart-price-container">

@@ -1,6 +1,9 @@
 import { useContext, useState } from 'react';
+import { GiHanger } from "react-icons/gi";
 import { ShopContext } from '../../context/ShopContext';
 import '../styles/product-display.css';
+import VirtualFitting from './VirtualFitting';
+
 
 const ProductDisplay = (props) => {
     const { addCart } = useContext(ShopContext);
@@ -30,6 +33,16 @@ const ProductDisplay = (props) => {
                 setShowSizeAnimation(false);
             }, 1000); 
         }
+    };
+
+    const [showPopup, setShowPopup] = useState(false);
+
+    const handleVirtualFittingRoomClick = () => {
+        setShowPopup(true);
+    };
+
+    const closePopup = () => {
+        setShowPopup(false);
     };
 
     return (
@@ -94,6 +107,12 @@ const ProductDisplay = (props) => {
                     </div>
                     <input type='submit' value='Add Carrinho' className='button-cart' />
                 </form>
+                <div className='virtual-fitting-room' onClick={handleVirtualFittingRoomClick}>
+                    <GiHanger /> Provador Virtual
+                </div>
+
+                <VirtualFitting showPopup={showPopup} closePopup={closePopup} />
+
             </div>
         </div>
     )

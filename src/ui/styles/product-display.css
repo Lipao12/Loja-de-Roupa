@@ -114,4 +114,12 @@
     }
 }
 
+.virtual-fitting-room{
+    font-size: 18px;
+}
+.virtual-fitting-room:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 
